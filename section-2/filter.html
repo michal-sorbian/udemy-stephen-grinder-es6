@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 2 filter</title>
+</head>
+<body>
+   
+   <script>
+      var products = [
+         {name: 'cucumber', type: 'veggie', quantity: 0, price: 1},
+         {name: 'apple', type: 'fruit', quantity: 10, price: 15},
+         {name: 'potato', type: 'veggie', quantity: 30, price: 13},
+         {name: 'strawberry', type: 'fruit', quantity: 3, price: 5},
+      ];
+      
+      var fruits = [];
+      products.forEach(function(product){
+         if(product.type === 'fruit') {
+            fruits.push(product);
+         }
+      });
+
+      console.log("Using forEach:", fruits);
+
+      var fruits2 = products.filter(function(product){
+         return product.type === 'fruit';
+      })
+
+      console.log("Using filter:", fruits2);
+
+      // Filtered 1: get veggies, quantity > 0, price < 10
+
+      var filtered1 = products.filter(product => {
+         return product.type === 'veggie' && product.quantity > 0 && product.price < 15;
+      })
+      console.log(filtered1);
+
+      var numbers = [10,20,30];
+
+      function reject(array, iteratorFunction) {
+         return array.filter(iteratorFunction);
+      }
+
+      function lessThanFifteen(item){
+         return !(item > 15);
+      }
+
+      var filtered2 = reject(numbers, lessThanFifteen);
+      console.log(filtered2);
+
+   
+   </script>
+</body>
+</html>

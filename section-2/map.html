@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 2 map</title>
+</head>
+<body>
+   
+   <script>
+      var numbers = [1,2,3];
+      var doubledNumbers = [];
+
+      numbers.forEach(number => {
+         doubledNumbers.push(number*2);
+      });
+      console.log("Using forEach:", doubledNumbers);
+
+      var doubled = numbers.map(number => number*2);
+      console.log("Using map:", doubled);
+
+      var cars = [
+         {model: "Viper", price: 1000},
+         {model: "Maluch", price: 2000},
+      ];
+
+      var prices = cars.map(car => car.price);
+      console.log("Prices:", prices);
+
+      var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
+
+      function pluck(array, property) {
+         return array.map(function(item){
+            return item[property];
+         });
+      }
+
+      var colors = pluck(paints, 'color');
+
+      console.log(colors);
+
+   
+   </script>
+</body>
+</html>
