@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 2 find</title>
+</head>
+<body>
+   
+   <script>
+      var products = [
+         {name: 'cucumber', type: 'veggie', quantity: 0, price: 1},
+         {name: 'apple', type: 'fruit', quantity: 10, price: 15},
+         {name: 'potato', type: 'veggie', quantity: 30, price: 13},
+         {name: 'strawberry', type: 'fruit', quantity: 3, price: 5},
+      ];
+
+      var product = products.find(element => element.name === "strawberry");
+
+      //console.log(product);
+
+      function findWhere(array, criteria) {
+         var keyName = Object.keys(criteria)[0];
+         return array.find(item => item[keyName] == criteria[keyName]);
+      }
+
+      var result = findWhere(products, {quantity: 10});
+      console.log(result);
+
+
+
+   
+   </script>
+</body>
+</html>
