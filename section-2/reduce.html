@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 2 Reduce</title>
+</head>
+<body>
+   
+   <script>
+
+      var numbers = [10,20,30];
+      // var sum = 0;
+
+      // for(var i=0; i < numbers.length; i++) {
+      //    sum += numbers[i];
+      // }
+
+      //console.log(sum);
+
+      var redSum = numbers.reduce(function(suma, number) {
+         return suma + number;
+      });
+      
+      console.log(redSum);
+
+      var primaryColors = [
+         {color:'red'},
+         {color:'green'},
+         {color:'blue'},
+      ];
+
+      var colorNames = primaryColors.reduce(function(previous, primaryColor) {
+         //console.log(previous);         
+         previous.push(primaryColor.color);
+         return previous;
+      }, []);
+
+      console.log(colorNames);
+      
+      console.log('----------------------');
+      
+      function balancedParentheses(string) {
+         return !string.split('').reduce(function(previous, char) {
+            if(previous < 0) { return previous };
+            if(char === "(") { return ++previous; };
+            if(char === ")") { return --previous; };
+            return previous;
+         },0);
+      }
+
+      console.log(balancedParentheses(')()('));
+
+      var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+      var totalDistance = trips.reduce(function(previous, current){
+         return previous + current.distance;
+      },0);
+
+      console.log(totalDistance);
+
+      var desks = [
+         { type: 'sitting' },
+         { type: 'standing' },
+         { type: 'sitting' },
+         { type: 'sitting' },
+         { type: 'standing' }
+      ];
+
+      var deskTypes = desks.reduce(function(previous, current) {
+         if(current.type == "sitting") { previous.sitting++};
+         if(current.type == "standing") { previous.standing++};
+         return previous;
+      }, { sitting: 0, standing: 0 });
+      
+      console.log("deskTypes:", deskTypes);
+
+      function unique(array) {
+         return Array.from(new Set(array));
+      }
+
+      var nums = [1,1,2,3,4,4];
+      
+      console.log(unique(nums));
+      
+      
+   
+   </script>
+</body>
+</html>

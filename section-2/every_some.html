@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 2 Every & some</title>
+</head>
+<body>
+   
+   <script>
+
+      // Every - sprawdza czy wszystkie elementy spelniają warunek
+
+      // Some - sprawdza czy jakiekolwiek elementy spełniają warunek
+
+      var computers = [
+         { name: "Amiga", ram: 10 },
+         { name: "Atari", ram: 5 },
+         { name: "Commodore", ram: 100 },
+      ];
+
+      var allComputersCanRun = true;
+      var onlySomeComputersCanRun = false;
+
+      for(var i=0; i < computers.length; i++) {
+
+         if(computers[i].ram < 8) {
+            allComputersCanRun = false;
+         } else {
+            onlySomeComputersCanRun = true;
+         }
+
+      }
+
+      console.log("allComputersCanRun:", allComputersCanRun);
+      console.log("onlySomeComputersCanRun:", onlySomeComputersCanRun);
+      
+      console.log('--------- every ----------');      
+
+      var allComputers2 = computers.every(function(computer){
+         return computer.ram > 8;
+      });
+
+      console.log("allComputers2:", allComputers2);
+
+      console.log('--------- some ----------');
+      
+      var onlySome2 = computers.some(function(computer){
+         return computer.ram > 8;
+      });
+
+      console.log("onlySome2:", onlySome2);
+
+      console.log('-------------------');
+
+      var names = ['Hyzio', 'Sknerus', 'Horacy'];
+
+      var namesCheck = names.some(name => name.length > 5);
+      console.log(namesCheck);
+      
+
+   
+   </script>
+</body>
+</html>
