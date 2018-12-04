@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 10, Arrow Functions</title>
+</head>
+<body>
+
+   <script>
+   
+      const team = {
+         members: ['Jasko', 'Stasko'],
+         teamName: "TIM",
+         teamSummary: function(){
+            //let self = this;
+            this.members.map(member => {
+               console.log(this);               
+               console.log(`${member} is on team ${this.teamName}`);
+            });
+         }
+      }
+
+      team.teamSummary();
+
+      let name = "Grześ";
+
+      const profile = {
+         name: 'Alex',
+         getName: () => {
+            console.log(this);            
+            return this.name;
+         },
+      };
+
+      console.log(profile.getName());
+      
+
+   </script>
+   
+</body>
+</html>

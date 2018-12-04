@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 10, Enhanced object literals</title>
+</head>
+<body>
+
+   <script>
+
+      function createBookShop(inventory){
+         return {
+            inventory,
+            inventoryVal(){
+               return this.inventory.reduce((previous, current) => previous + current.price, 0);
+            },
+            priceForTitle(title){
+               return this.inventory.find(item => item.title == title).price;
+            }
+         }
+      }
+
+      const inv = [
+         { title: 'Harry Potter', price: 10 },
+         { title: "Costam", price: 20 }
+      ];
+
+      const bookShop = createBookShop(inv);
+
+      console.log(bookShop.inventoryVal());
+      console.log(bookShop.priceForTitle("Costam"));      
+
+   </script>
+   
+</body>
+</html>

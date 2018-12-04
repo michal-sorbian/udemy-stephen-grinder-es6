@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 10, Default function arguments</title>
+</head>
+<body>
+
+   <script>
+     
+     function test(abc, qwe = "trololo"){
+        return qwe;
+     }
+
+     console.log(test(1));
+     console.log(test(2, "zxcvbnm"));
+
+     function User(id) {
+        this.id = id;
+     }
+
+     function generateId() {
+        return Math.random() * 999;
+     }
+
+     function createAdminUser(user = new User(generateId())) {
+        user.admin = true;
+        return user;
+     }
+
+     //console.log(createAdminUser());
+     const adm = new User(generateId());
+     console.log(adm);
+     createAdminUser(adm);
+     console.log(adm);
+     
+     
+
+   </script>
+   
+</body>
+</html>
