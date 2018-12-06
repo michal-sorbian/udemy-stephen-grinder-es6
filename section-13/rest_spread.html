@@ -9,7 +9,43 @@
 <body>
 
    <script>
-     
+      function addNumbers(...numbers) {
+         return numbers.reduce((prev,current) => {
+            return prev + current;
+         }, 0);      
+      }
+
+      console.log(addNumbers(1,2,3,4,5));
+
+      console.log("-----------");
+      
+      const defaultColors = ["red", "green"];
+      const userColors = ["blue", "yellow"];
+      const moreColors = ["magenta", "cyan"];
+
+      //const allColors = defaultColors.concat(userColors);
+      const allColors = [...defaultColors, "BIAŁY", ...userColors, ...moreColors];
+
+      console.log(allColors);
+
+      function validateList(...items){
+         if(!items.includes('mleko')){
+            return ['mleko', ...items];
+         }
+      }
+
+      console.log(validateList('chleb', 'ser', 'warzywa'));
+
+      console.log("-----------");
+
+      const MathLib = {
+         calculate(...rest){
+            return this.mulitiply(...rest)
+         },
+         mulitiply(a,b){
+            return a*b;
+         }
+      }
 
 
    </script>
