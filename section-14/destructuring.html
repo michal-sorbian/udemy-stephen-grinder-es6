@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 14, Destructuring</title>
+</head>
+<body>
+
+   <script>     
+      
+      const expense = {
+         type: 'Business',
+         amount: '$666 USD'
+      };
+
+      //ES5
+      // const type = expense.type;
+      // const amount = expense.amount;
+
+
+      //ES6
+      const { type, amount } = expense;
+
+      console.log(type, amount);
+
+      var file = {
+         extension: 'png',
+         name: 'logo',
+         size: 999
+      };
+
+      function fileSummary({name, size}) {
+         return `File name: ${name}; File size: ${size} kB`;
+      }
+
+      console.log(fileSummary(file));
+
+      console.log('------------------------');      
+
+      const korpos = ['Fakro', 'Kruk', 'Vulcan'];
+
+      const [korpo1, ...rest] = korpos;
+
+      console.log(korpo1, rest);
+      
+      console.log('------------------------');
+
+      const companies = [
+         { name: 'Google', locat: 'Mountain view' },
+         { name: 'Facebook', locat: 'Menlo Park' },
+         { name: 'Uber', locat: 'San Francisco' }
+      ];
+
+      const [{ locat }] = companies;
+
+      console.log(locat);
+
+      const fakro = {
+         offices: ['Sanok', 'Wawa', 'Kłobuck']
+      };
+
+      const {offices: [office1]} = fakro;
+
+      console.log(office1);
+       
+      
+
+      
+
+   </script>
+   
+</body>
+</html>
