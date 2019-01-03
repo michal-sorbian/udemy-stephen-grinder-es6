@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 14, Classes</title>
+</head>
+<body>
+
+   <script>
+
+      console.log('----------- ES5 ------------');
+
+      /*
+      function Car(options) {
+         this.title = options.title;
+      }
+
+      Car.prototype.drive = function(){
+         return 'brrruuum';
+      }
+
+      function Skoda(options) {
+         Car.call(this, options);
+         this.color = options.color;
+      }
+
+      Skoda.prototype = Object.create(Car.prototype);
+      Skoda.prototype.constructor = Skoda;
+
+      Skoda.prototype.honk = function(){
+         return "pibiib";
+      }
+
+      const car =  new Car({title: "Audi"});
+      console.log(car.title);
+      console.log(car.drive());
+      //console.log(car.honk()); -> error
+
+      console.log('-----------------------');
+
+      const skoda = new Skoda({title: "Octavia", color: "grey"});
+      console.log(skoda.title);
+      console.log(skoda.color);
+      console.log(skoda.drive());
+      console.log(skoda.honk());
+
+      */
+
+      console.log('----------- ES6 ------------');
+
+      class Car {
+         constructor({brand}){
+            this.brand = brand;
+         }
+
+         drive(){
+            return "brum";
+         }
+      }
+
+      const car = new Car({brand: "Toyota"});
+      console.log(car);
+      console.log(car.drive());
+
+      console.log('----------------');
+
+      class Toyota extends Car {
+         constructor(options){
+            super(options);
+            this.color = options.color;
+         }
+         honk(){
+            return 'pibiip';
+         }
+      }
+
+      const toyota = new Toyota({color: 'red', brand: "Toyota2"});
+      console.log(toyota);
+      console.log(toyota.honk());
+      console.log(toyota.drive());
+
+   </script>
+   
+</body>
+</html>

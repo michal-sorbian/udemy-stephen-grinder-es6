@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>ES6 - section 16, Generators</title>
+</head>
+<body>
+   
+   <script>
+
+      function* shopping(){
+         // 2. on sidewalk
+
+         // 3. walking the sidewalk
+
+         // 4. go into the store with cash
+         const stuffFromStore = yield 'cash';
+
+         // walking to laundry
+         const stuffFromLaundry = yield 'laundry';
+
+         // 9. walk back home
+         return [stuffFromStore, stuffFromLaundry];
+      }
+
+      // in store
+      const gen = shopping();
+      console.log(gen.next()); // 1. leaving the house
+
+      // 5. walked into the store
+      // 6. walking thorugh the aisles...
+      // 7. purchasing stuff
+
+      console.log(gen.next('groceries')); // 8. leaving the store with groceries
+      console.log(gen.next('clothes')); // 
+
+      console.log('----------------');
+
+      function* colors() {
+         yield 'red';
+         yield 'green';
+         yield 'blue';
+      }
+
+      // const colorGen = colors();
+      // console.log(colorGen.next());
+      // console.log(colorGen.next());
+      // console.log(colorGen.next());
+      // console.log(colorGen.next());
+
+      const myColors = [];
+      for (let color of colors()){
+         myColors.push(color);
+      }
+
+      console.log(myColors);
+
+      console.log('----------------');
+
+      const testingTeam = {
+         lead: "Mania",
+         tester: "Kokeszko"
+      }
+
+      const engineerTeam = {
+         size: 3,
+         department: "Eng",
+         lead: "Jaśko",
+         manager: "Kaźmirz",
+         engineer: "Wicia",
+         testingTeam: testingTeam
+      }
+
+      function* teamIterator(team) {
+         yield team.lead;
+         yield team.manager;
+         yield team.engineer;
+         const testTeamGenerator = testTeamIterator(team.testingTeam);
+         yield* testTeamGenerator;
+      }
+
+      function* testTeamIterator(team) {
+         yield team.lead;
+         yield team.tester;
+      }
+
+      const names = [];
+      for (let name of teamIterator(engineerTeam)){
+         names.push(name);
+      }
+
+      console.log(names);
+
+   </script>
+</body>
+</html>

@@ -65,6 +65,44 @@
 
       console.log(office1);
        
+      console.log('------------------------');
+
+      const points = [
+         [1,2],
+         [4,7],
+         [5,9]
+      ];
+
+      // const pointsObj = points.map(point => {
+      //    const [x,y] = point;
+      //    return { x, y };
+      // });
+
+      const pointsObj = points.map(([x,y]) => {
+         //const [x,y] = point;
+         return { x, y };
+      });
+
+      console.log('------------------------');
+
+      console.log(pointsObj);
+
+      const numbers = [1, 2, 3];
+
+      // function double(numbers, result = []) {
+      //    const [num, ...rest] = numbers;
+      //    console.log(num);
+      //    console.log(rest);
+      //    //result.push(num*2);
+      //    //return double(rest, result);
+      // }
+
+      const double = function([number, ...rest]) {
+         if(number == undefined) return [];
+         else return [ number * 2, ...double(rest) ];
+      }
+
+      console.log(double(numbers));
       
 
       
